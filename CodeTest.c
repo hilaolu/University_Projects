@@ -1,39 +1,27 @@
 #include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+long Fact(int n)
+{
+    int i;
+    long result = 1;
+    for (i = 2; i <= n;i++)
+    {
+        result = result * i;
+    }
+    return result;
+}
 int main()
 {
-    int year;
-    double capital, rate, deposit;
-    printf("Please enter year,capital:");
-    scanf("%d,&lf", &year, &capital);
-    switch (year)
-    {
-    case 1:
-        rate = 0.0225;
-        deposit = (1 + 0.0225) * capital;
-        printf("rate = %lf, deposit = %lf\n", rate, deposit);
-        break;
-    case 2:
-        rate = 0.0243;
-        deposit = (1 + 2 * 0.0243) * capital;
-        printf("rate = %lf, deposit = %lf\n", rate, deposit);
-        break;
-    case 3:
-        rate = 0.0270;
-        deposit = (1 + rate * 3) * capital;
-        printf("rate = %lf, deposit = %lf\n", rate, deposit);
-        break;
-    case 5:
-        rate = 0.0288;
-        deposit = (1 + rate * 5) * capital;
-        printf("rate = %lf, deposit = %lf\n", rate, deposit);
-        break;
-    case 8:
-        rate = 0.03;
-        deposit = (1 + rate * 8) * capital;
-        printf("rate = %lf, deposit = %lf\n", rate, deposit);
-        break;
-    default:
-        printf("Error rate!\n");
-    }
-    return 0;
+    int a, b;
+    long G;
+    LJK:
+        printf("Please input a and b:\n");
+        scanf("%d,%d", &a, &b);
+        if ((scanf("%d,%d", &a, &b) == 2) && (a >= b))
+            G = Fact(a) / (Fact(b) * Fact(a - b));
+        else
+            goto LJK;
+        printf("%ld", G);
+        return 0;
 }
